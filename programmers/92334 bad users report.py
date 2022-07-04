@@ -31,7 +31,6 @@ k = 2(즉, 2번 이상 신고당하면 이용 정지)인 경우의 예시입니�
 이용자의 ID가 담긴 문자열 배열 id_list, 각 이용자가 신고한 이용자의 ID 정보가 담긴 
 문자열 배열 report, 정지 기준이 되는 신고 횟수 k가 매개변수로 주어질 때, 
 각 유저별로 처리 결과 메일을 받은 횟수를 배열에 담아 return 하도록 solution 함수를 완성해주세요.
-
 입출력 예
 id_list = ["muzi", "frodo", "apeach", "neo"]
 report = ["muzi frodo","apeach frodo","frodo neo","muzi neo","apeach muzi"]
@@ -43,10 +42,22 @@ def solution(id_list, report, k) :
     df = pd.DataFrame(data=0, index=id_list, columns=id_list)
     for val in report :
         df.loc[val.split()[0], val.split()[1]] = 1
-    return df.loc[:,df.columns[df.sum(axis=0)>=k]].sum(axis=1)
+    return df.loc[:,df.columns[df.sum(axis=0)>=k]].sum(axis=1).to_list()
 #
 id_list = ["muzi", "frodo", "apeach", "neo"]
 report = ["muzi frodo","apeach frodo","frodo neo","muzi neo","apeach muzi"]
 k = 2
-solution(id_list, report, k).to_list()
-#
+solution(id_list, report, k)
+'''
+Solution by other
+'''
+def solution(id_list, report, k):
+    answer = [0] * len(id_list)    
+    reports = {x : 0 for x in id_list}
+    for r in set(report):
+        reports[r.split()[1]] += 1
+    for r in set(report):
+        if reports[r.split()[1]] >= k:
+            answer[id_list.index(r.split()[0])] += 1
+    return answer
+# END
