@@ -42,11 +42,8 @@ import pandas as pd
 def solution(id_list, report, k) :
     df = pd.DataFrame(data=0, index=id_list, columns=id_list)
     for val in report :
-        df.loc[val.split()[0], val.split()[1]] = 1 # allow only one complaint
-    print(df)
-    df.loc[:,df.columns[df.sum(axis=0)<k]] = 0 # remove numbers less than 'k'
-    print(df)
-    return df.sum(axis=1)
+        df.loc[val.split()[0], val.split()[1]] = 1
+    return df.loc[:,df.columns[df.sum(axis=0)>=k]].sum(axis=1)
 #
 id_list = ["muzi", "frodo", "apeach", "neo"]
 report = ["muzi frodo","apeach frodo","frodo neo","muzi neo","apeach muzi"]
