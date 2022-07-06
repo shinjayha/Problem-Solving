@@ -61,4 +61,19 @@ def solution(lottos, win_nums):
         if x in lottos:
             ans += 1
     return rank[cnt_0 + ans],rank[ans]
+
+# Solution by other
+def solution(lottos, win_nums):
+    rank = {0: 6, 1: 6, 2: 5, 3: 4, 4: 3, 5: 2, 6: 1 }
+    return [rank[len(set(lottos) & set(win_nums)) + lottos.count(0)], rank[len(set(lottos) & set(win_nums))]]
+
+# Solution by other
+def solution(lottos, win_nums):
+    zero = lottos.count(0)
+    a= [x for x in lottos if x in win_nums]
+    max = zero+len(a)
+    min = len(a)
+    max = 7- max if max >=1 else 6
+    min = 7- min if min >=1 else 6
+    return [max,min]
 # END
