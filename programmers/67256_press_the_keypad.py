@@ -20,7 +20,7 @@ and the rules for using the thumb are as follows.
 각 번호를 누른 엄지손가락이 왼손인 지 오른손인 지를 나타내는 연속된 문자열 형태로 return 하도록 solution 함수를 완성해주세요.
 
 입출력 예
-numbers							hand		result
+numbers				hand	result
 [1, 3, 4, 5, 8, 2, 1, 4, 5, 9, 5]	"right"	"LRLLLRLLRRL"
 [7, 0, 8, 2, 8, 3, 1, 5, 7, 6, 2]	"left"	"LRLLRRLLLRR"
 [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]	"right"		"LLRLLRLLRL"
