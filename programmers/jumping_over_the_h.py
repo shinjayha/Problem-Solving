@@ -3,7 +3,6 @@ Jumping over the "h"
 k = how small each jump is
 boxes = heights of boxes in list, that can be used in any order.
 '''
-
 h, k, boxes = 12, 3, [1,2,3,5,8,9]
 # h, k, boxes = 10, 1, [9,8,7,6,5,4,3,2,1]
 def solution(h, k, boxes):
