@@ -55,6 +55,10 @@ def solution(board, moves):
         count += 2
     except : pass
 
+
+
+
+
   # temporary block to see the answer_list after moves
   bb = []
   answer_list = ""
@@ -69,11 +73,17 @@ def solution(board, moves):
     except : pass
   print(answer_list)
   # END of temporary block
+  
+
+
 
   return count
 #
 board, moves = 	[[0,0,0,0,0], [0,0,1,0,3], [0,2,5,0,1], [4,2,4,4,2], [3,5,1,3,1]], [1,5,3,5,1,2,1,4]
+board, moves = 	[[1,2,3,4,5], [1,2,3,4,5], [1,2,3,4,5], [1,2,3,4,5]], [1,1,2,2,3,3,4,4,5]
 solution(board, moves)
+
+
 
 # Solution by other
 
